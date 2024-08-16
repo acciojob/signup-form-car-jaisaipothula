@@ -5,104 +5,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup Form</title>
     <style>
+        /* Inline CSS for basic styling */
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
+            background-color: #f4f4f4;
         }
-        form {
+        .container {
             max-width: 600px;
-            margin: 0 auto;
+            margin: auto;
             padding: 20px;
-            border: 1px solid #ccc;
-            background-color: #f9f9f9;
-            border-radius: 5px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         label {
             display: block;
             margin-bottom: 8px;
             font-weight: bold;
         }
-        input[type="text"],
-        input[type="email"],
-        input[type="number"],
-        input[type="date"],
-        input[type="tel"],
-        input[type="password"] {
-            width: calc(100% - 20px);
+        input[type="text"], input[type="email"], input[type="number"], input[type="date"], input[type="tel"], input[type="password"], select {
+            width: 100%;
             padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
+            margin-bottom: 16px;
+            border: 1px solid #ddd;
             border-radius: 4px;
-            box-sizing: border-box;
         }
-        select {
-            width: calc(100% - 22px);
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
+        input[type="radio"], input[type="checkbox"] {
+            margin-right: 8px;
         }
-        input[type="checkbox"] {
-            margin-bottom: 10px;
+        .form-group {
+            margin-bottom: 16px;
         }
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
+        .form-group input[type="radio"] {
+            margin-right: 10px;
+        }
+        button[type="submit"] {
             padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin-top: 10px;
-            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
             border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
         }
-        input[type="submit"]:hover {
-            background-color: #45a049;
+        button[type="submit"]:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <form action="#" method="post">
-        <h2>Signup Form</h2>
-        
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required placeholder="Name">
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required placeholder="Email">
-
-        <label>Gender:</label>
-        <label for="gender_m"><input type="radio" id="gender_m" name="gender" required> Male</label>
-        <label for="gender_f"><input type="radio" id="gender_f" name="gender" required> Female</label>
-
-        <label for="cars">Car Brands:</label>
-        <select id="cars" name="cars" required>
-            <option value="" disabled selected>--Please choose an option--</option>
-            <option value="Toyota">Toyota</option>
-            <option value="Honda">Honda</option>
-            <option value="Ford">Ford</option>
-            <option value="Chevrolet">Chevrolet</option>
-            <option value="Other">Other</option>
-        </select>
-
-        <label for="age">Age:</label>
-        <input type="number" id="age" name="age" required placeholder="Age">
-
-        <label for="dob">DOB:</label>
-        <input type="date" id="dob" name="dob" required>
-
-        <label for="tel">Phone Number:</label>
-        <input type="tel" id="tel" name="tel" placeholder="xxx-xxx-xxxx">
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required placeholder="Password">
-
-        <label><input type="checkbox" id="tos" name="tos" required> I agree to the TOS</label>
-
-        <input type="submit" value="Submit">
-    </form>
+    <div class="container">
+        <h1>Signup Form</h1>
+        <form action="/submit" method="post">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <label>Gender:</label>
+                <input type="radio" id="gender_m" name="gender" value="male" required>
+                <label for="gender_m">Male</label>
+                <input type="radio" id="gender_f" name="gender" value="female" required>
+                <label for="gender_f">Female</label>
+            </div>
+            <div class="form-group">
+                <label for="cars">Car Brands:</label>
+                <select id="cars" name="cars" required>
+                    <option value="">--Please choose an option--</option>
+                    <option value="audi">Audi</option>
+                    <option value="bmw">BMW</option>
+                    <option value="mercedes">Mercedes</option>
+                    <option value="toyota">Toyota</option>
+                    <option value="volkswagen">Volkswagen</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" placeholder="Age" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+            <div class="form-group">
+                <label for="tel">Phone Number:</label>
+                <input type="tel" id="tel" name="tel" placeholder="xxx-xxx-xxxx">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" id="tos" name="tos" required>
+                <label for="tos">I agree to the TOS</label>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 </body>
 </html>
